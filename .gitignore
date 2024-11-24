@@ -1,2 +1,5 @@
 .venv
 .ruff_cache
+chromedriver
+*.csv
+.DS_Store
