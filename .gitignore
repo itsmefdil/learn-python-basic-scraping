@@ -3,3 +3,4 @@
 chromedriver
 *.csv
 .DS_Store
+*.json
