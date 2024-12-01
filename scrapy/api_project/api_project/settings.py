@@ -1,4 +1,4 @@
-# Scrapy settings for learn_spider project
+# Scrapy settings for api_project project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "learn_spider"
+BOT_NAME = "api_project"
 
-SPIDER_MODULES = ["learn_spider.spiders"]
-NEWSPIDER_MODULE = "learn_spider.spiders"
+SPIDER_MODULES = ["api_project.spiders"]
+NEWSPIDER_MODULE = "api_project.spiders"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "learn_spider (+http://www.yourdomain.com)"
+#USER_AGENT = "api_project (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -37,20 +37,21 @@ ROBOTSTXT_OBEY = True
 #TELNETCONSOLE_ENABLED = False
 
 # Override the default request headers:
-# DEFAULT_REQUEST_HEADERS = {
-#    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
-# }
+#DEFAULT_REQUEST_HEADERS = {
+#    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+#    "Accept-Language": "en",
+#}
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    "learn_spider.middlewares.LearnSpiderSpiderMiddleware": 543,
+#    "api_project.middlewares.ApiProjectSpiderMiddleware": 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    "learn_spider.middlewares.LearnSpiderDownloaderMiddleware": 543,
+#    "api_project.middlewares.ApiProjectDownloaderMiddleware": 543,
 #}
 
 # Enable or disable extensions
@@ -61,9 +62,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   "learn_spider.pipelines.SQLitePipeline": 300,
-}
+#ITEM_PIPELINES = {
+#    "api_project.pipelines.ApiProjectPipeline": 300,
+#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

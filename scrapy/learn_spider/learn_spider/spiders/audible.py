@@ -12,8 +12,6 @@ class AudibleSpider(scrapy.Spider):
         headers={'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'}
         )
 
-
-
     def parse(self, response):
         products = response.xpath('//li[contains(@class, "productListItem")]')
 
@@ -35,12 +33,11 @@ class AudibleSpider(scrapy.Spider):
                 # 'language': language
             }
 
+        url= "https://www.audible.com/adblbestsellers?"
         pagination = response.xpath('//ul[contains(@class, "pagingElements")]')
-        next_page_url = pagination.xpath('.//span[contains(@class,"nextButton")]/a/@href').get()
         pages = pagination.xpath('.//li[contains(@class, "bc-list-item")]/a/text()').getall()
         last_page = int(pages[-1])
-        url= "https://www.audible.com/adblbestsellers?"
-        print("Pagination: ", next_page_url)
+
 
         if pages:
                     last_page = int(pages[-1])
@@ -49,6 +46,7 @@ class AudibleSpider(scrapy.Spider):
 
                     if current_page < last_page:
                         next_page = current_page + 1
+                        print("Scrape Page: ", next_page)
                         next_page_url = f"{url}?page={next_page}"
                         yield response.follow(
                             url=next_page_url,
@@ -56,6 +54,8 @@ class AudibleSpider(scrapy.Spider):
                             headers={'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'}
                         )
 
+        # pagination = response.xpath('//ul[contains(@class, "pagingElements")]')
+        # next_page_url = pagination.xpath('.//span[contains(@class,"nextButton")]/a/@href').get()
         # if next_page_url:
             # yield response.follow(url=next_page_url, callback=self.parse,headers={'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'}
             # )
